@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Expense & Sales Management System</title>
+	<link rel="stylesheet" href="style.css/style.css">
+	<style>
+		/* Small critical CSS to avoid FOUC for the submit button width */
+		.submit-btn { width: 100%; }
+	</style>
+</head>
+<body>
+
+<div class="container">
+	<h1>Order & Financial Management System</h1>
+    
+	<div class="dashboard">
+		<div class="card income-card">
+			<div>Total Income (+)</div>
+			<div id="total-income">0 EGP</div>
+		</div>
+		<div class="card expense-card">
+			<div>Total Expense (-)</div>
+			<div id="total-expense">0 EGP</div>
+		</div>
+		<div class="card balance-card">
+			<div>Net Balance</div>
+			<div id="net-balance">0 EGP</div>
+		</div>
+	</div>
+
+	<form id="transaction-form">
+		<div class="form-group">
+			<div>
+				<label for="type">Transaction Type</label>
+				<select id="type">
+					<option value="income">Income (Sales)</option>
+					<option value="expense">Expense (Purchases)</option>
+				</select>
+			</div>
+			<div>
+				<label for="product">Product / Description</label>
+				<select id="product">
+					<option value="Product A">Product A</option>
+					<option value="Product B">Product B</option>
+					<option value="Product C">Product C</option>
+					<option value="Others">Others</option>
+				</select>
+			</div>
+			<div>
+				<label for="amount">Price / Amount</label>
+				<input type="number" id="amount" placeholder="0.00" required min="0.01" step="0.01">
+			</div>
+			<div>
+				<label for="user">Ordered By</label>
+				<input type="text" id="user" placeholder="Who placed the order?" required>
+			</div>
+		</div>
+		<button type="submit" class="submit-btn">Record Transaction</button>
+	</form>
+
+	<h2>Transaction History</h2>
+	<table id="history-table">
+		<thead>
+			<tr>
+				<th>Date & Time</th>
+				<th>Type</th>
+				<th>Product / Description</th>
+				<th>Amount</th>
+				<th>Ordered By</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody id="history-body">
+			</tbody>
+	</table>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
